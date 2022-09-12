@@ -108,31 +108,31 @@
 
                 </div>
                 <!-- Advance Search -->
-                <div class="advance-search">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-12 col-md-12 align-content-center">
-                                <form th:action="@{/pages/restaurants/search}">
-                                    <div class="form-row">
-                                        <div class="form-group col-xl-12 col-lg-12 col-md-12">
-                                            <label><h2>Search for a Restaurant by selecting a city below &downarrow;</h2> </label>
-                                        </div>
-                                        <div class="form-group col-lg-10 col-md-10">
-                                            <select class="form-control mb-3" name="query">
-                                                <option th:each="city : ${T(ng.com.createsoftware.servbyte.model.City).values()}"
-                                                        th:value="${city}" th:text="${city}"></option>
-                                                <option value="Abuja">Abuja</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-xl-2 col-lg-2 col-md-2">
-                                            <button type="submit" class="btn btn-block p-3 btn-outline-primary active"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="advance-search">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row justify-content-center">-->
+<!--                            <div class="col-lg-12 col-md-12 align-content-center">-->
+<!--                                <form th:action="@{/pages/restaurants/search}">-->
+<!--                                    <div class="form-row">-->
+<!--                                        <div class="form-group col-xl-12 col-lg-12 col-md-12">-->
+<!--                                            <label><h2>Search for a Restaurant by selecting a city below &downarrow;</h2> </label>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-lg-10 col-md-10">-->
+<!--                                            <select class="form-control mb-3" name="query">-->
+<!--                                                <option th:each="city : ${T(ng.com.createsoftware.servbyte.model.City).values()}"-->
+<!--                                                        th:value="${city}" th:text="${city}"></option>-->
+<!--                                                <option value="Abuja">Abuja</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-xl-2 col-lg-2 col-md-2">-->
+<!--                                            <button type="submit" class="btn btn-block p-3 btn-outline-primary active"><i class="fa-solid fa-magnifying-glass"></i></button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

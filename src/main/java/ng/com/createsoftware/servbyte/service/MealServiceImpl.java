@@ -2,7 +2,9 @@ package ng.com.createsoftware.servbyte.service;
 
 import lombok.AllArgsConstructor;
 import ng.com.createsoftware.servbyte.model.Meal;
+import ng.com.createsoftware.servbyte.model.ServiceProvider;
 import ng.com.createsoftware.servbyte.repository.MealRepository;
+import ng.com.createsoftware.servbyte.repository.ServiceProviderRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,12 +15,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class MealServiceImpl implements MealService {
 
     private MealRepository mealRepository;
+    private ServiceProviderRepository serviceProviderRepository;
 
     //get all meals
     @Override
@@ -44,4 +48,6 @@ public class MealServiceImpl implements MealService {
         }
 
     }
+
+
 }

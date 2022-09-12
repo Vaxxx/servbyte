@@ -2,6 +2,7 @@ package ng.com.createsoftware.servbyte.controller;
 
 import lombok.AllArgsConstructor;
 import ng.com.createsoftware.servbyte.model.Meal;
+import ng.com.createsoftware.servbyte.model.MealRequest;
 import ng.com.createsoftware.servbyte.repository.MealRepository;
 import ng.com.createsoftware.servbyte.repository.ServiceProviderRepository;
 import ng.com.createsoftware.servbyte.service.MealService;
@@ -57,7 +58,7 @@ public class MealController {
 
         mealService.addMeal(meal,uploadDir, multipartFile);
 
-        return "redirect:/pages/meals?add";
+        return "redirect:/pages/meal?add";
     }
 
     //show all meals
@@ -65,6 +66,18 @@ public class MealController {
     public String showAllMeals(Model model) {
         model.addAttribute("meals", mealService.getAllMeals());
         return "/pages/meals";
+    }
+
+    @GetMapping("/showMeal")
+    public String showMeal(@ModelAttribute("meal") MealRequest request, Model model){
+       MealRequest rq = new MealRequest(request);
+       String email = rq.getEmail();
+       int index = rq.getIndex();
+       double price = rq.getPrice();
+        System.out.println("Email: " + email);
+        System.out.println("index: " + index);
+        System.out.println("price: " + price);
+       return "pages/meal_order";
     }
 
 }

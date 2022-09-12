@@ -3,8 +3,10 @@ package ng.com.createsoftware.servbyte.controller;
 import lombok.AllArgsConstructor;
 import ng.com.createsoftware.servbyte.dao.ServiceProviderRequest;
 import ng.com.createsoftware.servbyte.model.City;
+import ng.com.createsoftware.servbyte.model.MealRestaurant;
 import ng.com.createsoftware.servbyte.model.ServiceProvider;
 import ng.com.createsoftware.servbyte.repository.MealRepository;
+import ng.com.createsoftware.servbyte.service.MealService;
 import ng.com.createsoftware.servbyte.service.ServiceProviderService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ public class ServiceProviderController {
     private ServiceProviderService service;
     private MealRepository mealRepository;
 
+    private MealService mealService;
 
  ///show service providers by searching for cities
     @GetMapping("/restaurants/search")
@@ -38,10 +41,7 @@ public class ServiceProviderController {
     //add a service provider
     @PostMapping("/restaurants")
     public String addServiceProvider(ServiceProvider serviceProvider) throws IOException {
-
-
         service.addServiceProvider(serviceProvider);
-
         return "redirect:/pages/addRestaurant?add";
     }
 
@@ -50,6 +50,14 @@ public class ServiceProviderController {
     public String showServiceProviderForm(Model model){
         model.addAttribute("serviceProvider", new ServiceProvider());
         return "/pages/add_service_provider";
+    }
+
+    //show meal _ service provider form
+    @GetMapping("/meal_restaurant")
+    public String showMealServiceProviderForm(Model model){
+        model.addAttribute("serviceProviders", service.showAllServiceProvider());
+        model.addAttribute("meals", mealService.getAllMeals());
+        return "/pages/add_meal_service_provider";
     }
 
     //show all service providers
